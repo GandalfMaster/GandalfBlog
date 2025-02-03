@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/GandalfBlog/img/fluid.png">
-  <link rel="icon" href="/GandalfBlog/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/GandalfBlog/img/outsiders.png">
+  <link rel="icon" href="/GandalfBlog/img/outsiders.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -61,7 +61,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"gandalfmaster.github.io","root":"/GandalfBlog/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/GandalfBlog/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"gandalfmaster.github.io","root":"/GandalfBlog/","version":"1.9.8","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/GandalfBlog/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -189,7 +189,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="An elegant Material-Design theme for Hexo"></span>
+            <span id="subtitle">An elegant Material-Design theme for Hexo</span>
           
         </div>
 
@@ -227,15 +227,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/" target="_self">
-          第二次作业：网格编辑
+        <a href="/GandalfBlog/2024/02/03/%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%9C%E4%B8%9A/" target="_self">
+          第一次作业：光栅化三角形
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/GandalfBlog/2024/02/03/%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%9C%E4%B8%9A/" target="_self">
         <div>
-          一.概述这个作业主要实现了贝塞尔曲线和曲面，并通过加权面积的顶点法线实现了曲面的平滑着色。最后实现边翻转和边分割，并凭借这两个函数实现loop细分，使物体更加平滑。 二.贝塞尔曲线和曲面1. 基于 1D de Casteljau 绘制贝塞尔曲线de Casteljau 算法是一种用于递归计算贝塞尔曲线上任意点的几何算法。它基于控制点的线性插值，并且与贝塞尔曲线的定义完全一致，适用于任何阶数的贝塞尔
+          一.前置函数实现实现一个函数，来判断点是否在一个三角形的内部. 12345678910111213141516171819202122232425static bool insideTriangle(float x, float y, const Vector3f* _v)&#123;        Vector3f point0 = _v[0];    Vector3f point1 = _v[
         </div>
       </a>
 
@@ -297,15 +297,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/GandalfBlog/2024/02/03/%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%9C%E4%B8%9A/" target="_self">
-          第一次作业：光栅化三角形
+        <a href="/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/" target="_self">
+          第二次作业：网格编辑
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/GandalfBlog/2024/02/03/%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%9C%E4%B8%9A/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/" target="_self">
         <div>
-          一.前置函数实现实现一个函数，来判断点是否在一个三角形的内部. 12345678910111213141516171819202122232425static bool insideTriangle(float x, float y, const Vector3f* _v)&#123;        Vector3f point0 = _v[0];    Vector3f point1 = _v[
+          一.概述这个作业主要实现了贝塞尔曲线和曲面，并通过加权面积的顶点法线实现了曲面的平滑着色。最后实现边翻转和边分割，并凭借这两个函数实现loop细分，使物体更加平滑。 二.贝塞尔曲线和曲面1. 基于 1D de Casteljau 绘制贝塞尔曲线de Casteljau 算法是一种用于递归计算贝塞尔曲线上任意点的几何算法。它基于控制点的线性插值，并且与贝塞尔曲线的定义完全一致，适用于任何阶数的贝塞尔
         </div>
       </a>
 
@@ -437,21 +437,6 @@
 <script  src="/GandalfBlog/js/events.js" ></script>
 <script  src="/GandalfBlog/js/plugins.js" ></script>
 
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
 
 
 
