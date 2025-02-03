@@ -16,47 +16,49 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="gandalf">
   <meta name="keywords" content="">
   
-    <meta name="description" content="计算机图形学    第二次作业：网格编辑   一.概述这个作业主要实现了贝塞尔曲线和曲面，并通过加权面积的顶点法线实现了曲面的平滑着色。最后实现边翻转和边分割，并凭借这两个函数实现loop细分，使物体更加平滑。 二.贝塞尔曲线和曲面1. 基于 1D de Casteljau 绘制贝塞尔曲线de Casteljau 算法是一种用于递归计算贝塞尔曲线上任意点的几何算法。它基于控制点的线性插值，并且与">
+    <meta name="description" content="一.概述这个作业主要实现了贝塞尔曲线和曲面，并通过加权面积的顶点法线实现了曲面的平滑着色。最后实现边翻转和边分割，并凭借这两个函数实现loop细分，使物体更加平滑。 二.贝塞尔曲线和曲面1. 基于 1D de Casteljau 绘制贝塞尔曲线de Casteljau 算法是一种用于递归计算贝塞尔曲线上任意点的几何算法。它基于控制点的线性插值，并且与贝塞尔曲线的定义完全一致，适用于任何阶数的贝塞尔">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://gandalfmaster.github.io/GandalfBlog/2025/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="计算机图形学    第二次作业：网格编辑   一.概述这个作业主要实现了贝塞尔曲线和曲面，并通过加权面积的顶点法线实现了曲面的平滑着色。最后实现边翻转和边分割，并凭借这两个函数实现loop细分，使物体更加平滑。 二.贝塞尔曲线和曲面1. 基于 1D de Casteljau 绘制贝塞尔曲线de Casteljau 算法是一种用于递归计算贝塞尔曲线上任意点的几何算法。它基于控制点的线性插值，并且与">
+<meta property="og:title" content="第二次作业：网格编辑">
+<meta property="og:url" content="https://gandalfmaster.github.io/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/index.html">
+<meta property="og:site_name" content="GandalfMasterBlog">
+<meta property="og:description" content="一.概述这个作业主要实现了贝塞尔曲线和曲面，并通过加权面积的顶点法线实现了曲面的平滑着色。最后实现边翻转和边分割，并凭借这两个函数实现loop细分，使物体更加平滑。 二.贝塞尔曲线和曲面1. 基于 1D de Casteljau 绘制贝塞尔曲线de Casteljau 算法是一种用于递归计算贝塞尔曲线上任意点的几何算法。它基于控制点的线性插值，并且与贝塞尔曲线的定义完全一致，适用于任何阶数的贝塞尔">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2025/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/1.jpg">
-<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2025/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/2.jpg">
-<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2025/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/3.jpg">
-<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2025/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/4.jpg">
-<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2025/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/5.jpg">
+<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/1.jpg">
+<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/2.jpg">
+<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/3.jpg">
+<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/4.jpg">
+<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/5.jpg">
 <meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/photo/6.png">
-<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2025/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/7.jpg">
-<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2025/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/8.jpg">
-<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2025/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/11.jpg">
-<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2025/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/12.jpg">
-<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2025/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/11.jpg">
-<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2025/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/12.jpg">
-<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2025/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/13.jpg">
+<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/7.jpg">
+<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/8.jpg">
+<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/11.jpg">
+<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/12.jpg">
+<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/11.jpg">
+<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/12.jpg">
+<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/13.jpg">
 <meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/photo/14.png">
 <meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/photo/15.png">
-<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2025/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/16.jpg">
-<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2025/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/17.jpg">
-<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2025/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/18.jpg">
-<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2025/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/19.jpg">
+<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/16.jpg">
+<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/17.jpg">
+<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/18.jpg">
+<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/19.jpg">
 <meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/photo/20.png">
-<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2025/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/21.jpg">
-<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2025/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/22.jpg">
-<meta property="article:published_time" content="2025-02-03T05:20:21.189Z">
-<meta property="article:modified_time" content="2025-02-03T05:20:21.238Z">
-<meta property="article:author" content="John Doe">
+<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/21.jpg">
+<meta property="og:image" content="https://gandalfmaster.github.io/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/22.jpg">
+<meta property="article:published_time" content="2024-02-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-02-03T07:00:14.556Z">
+<meta property="article:author" content="gandalf">
+<meta property="article:tag" content="Jekyll">
+<meta property="article:tag" content="Markdown">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://gandalfmaster.github.io/GandalfBlog/2025/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/1.jpg">
+<meta name="twitter:image" content="https://gandalfmaster.github.io/GandalfBlog/2024/02/03/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/photo/1.jpg">
   
   
   
-  <title>Hexo</title>
+  <title>第二次作业：网格编辑 - GandalfMasterBlog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -222,7 +224,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="第二次作业：网格编辑"></span>
           
         </div>
 
@@ -233,8 +235,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-02-03 13:20" pubdate>
-          2025年2月3日 下午
+        <time datetime="2024-02-03 00:00" pubdate>
+          2024年2月3日 凌晨
         </time>
       </span>
     
@@ -245,7 +247,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.8k 字
+          2.7k 字
         
       </span>
     
@@ -293,20 +295,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">第二次作业：网格编辑</h1>
             
             
               <div class="markdown-body">
                 
-                <div style="text-align: center; font-size: 36px;">
-计算机图形学
-</div>
-
-<div style="text-align: center;">
-第二次作业：网格编辑
-</div>
-
-<h2 id="一-概述"><a href="#一-概述" class="headerlink" title="一.概述"></a>一.概述</h2><p>这个作业主要实现了贝塞尔曲线和曲面，并通过加权面积的顶点法线实现了曲面的平滑着色。最后实现边翻转和边分割，并凭借这两个函数实现loop细分，使物体更加平滑。</p>
+                <h2 id="一-概述"><a href="#一-概述" class="headerlink" title="一.概述"></a>一.概述</h2><p>这个作业主要实现了贝塞尔曲线和曲面，并通过加权面积的顶点法线实现了曲面的平滑着色。最后实现边翻转和边分割，并凭借这两个函数实现loop细分，使物体更加平滑。</p>
 <h2 id="二-贝塞尔曲线和曲面"><a href="#二-贝塞尔曲线和曲面" class="headerlink" title="二.贝塞尔曲线和曲面"></a>二.贝塞尔曲线和曲面</h2><h3 id="1-基于-1D-de-Casteljau-绘制贝塞尔曲线"><a href="#1-基于-1D-de-Casteljau-绘制贝塞尔曲线" class="headerlink" title="1. 基于 1D de Casteljau 绘制贝塞尔曲线"></a>1. 基于 1D de Casteljau 绘制贝塞尔曲线</h3><p>de Casteljau 算法是一种用于递归计算贝塞尔曲线上任意点的几何算法。它基于控制点的线性插值，并且与贝塞尔曲线的定义完全一致，适用于任何阶数的贝塞尔曲线。算法的核心思想是：通过在相邻控制点之间进行线性插值，逐步计算中间控制点，直到得到曲线上的一个点。它的主要公式是：<br>$$<br>P_0’(t) &#x3D; (1 - t) P_0 + t P_1<br>$$<br>我实现了以下这个函数：</p>
 <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs maxima"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;Vector2D&gt; BezierCurve::evaluateStep(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;Vector2D&gt; const&amp; <span class="hljs-built_in">points</span>)<br>&#123;<br>    size_t size = <span class="hljs-built_in">points</span>.size();<br>    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;Vector2D&gt; res;<br>    <span class="hljs-keyword">for</span> (int i = <span class="hljs-number">0</span>; i &lt; size - <span class="hljs-number">1</span>; i++) &#123;<br>        Vector2D temp;<br>        temp.x = (<span class="hljs-number">1</span> - t) * <span class="hljs-built_in">points</span>[i].x + t * <span class="hljs-built_in">points</span>[i + <span class="hljs-number">1</span>].x;<br>        temp.y = (<span class="hljs-number">1</span> - t) * <span class="hljs-built_in">points</span>[i].y + t * <span class="hljs-built_in">points</span>[i + <span class="hljs-number">1</span>].y;<br><br>        res.push_back(temp);<br>    &#125;<br><br>    <span class="hljs-built_in">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -450,6 +444,43 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/GandalfBlog/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+    <span>></span>
+    
+  <a href="/GandalfBlog/categories/%E6%8A%80%E6%9C%AF/Markdown/" class="category-chain-item">Markdown</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/GandalfBlog/tags/Jekyll/" class="print-no-link">#Jekyll</a>
+      
+        <a href="/GandalfBlog/tags/Markdown/" class="print-no-link">#Markdown</a>
+      
+    </div>
   
 </div>
 
@@ -459,20 +490,20 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
-      <div>https://gandalfmaster.github.io/GandalfBlog/2025/02/03/第二次作业/</div>
+      <div>第二次作业：网格编辑</div>
+      <div>https://gandalfmaster.github.io/GandalfBlog/2024/02/03/第二次作业/</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
           <div>作者</div>
-          <div>John Doe</div>
+          <div>gandalf</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年2月3日</div>
+          <div>2024年2月3日</div>
         </div>
       
       
@@ -504,15 +535,15 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/GandalfBlog/2024/02/03/%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%9C%E4%B8%9A/" title="第一次作业：光栅化三角形">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">第一次作业：光栅化三角形</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/GandalfBlog/2025/02/03/%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%9C%E4%B8%9A/" title="">
-                        <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
