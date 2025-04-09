@@ -19,16 +19,16 @@
   <meta name="author" content="gandalf">
   <meta name="keywords" content="">
   
-    <meta name="description" content="3.3.5（1）正则表达式：other-&gt;[bcdfghjklmnpqrstvwxyz] ​		need-&gt;other* a (other|a)* e (other|e)* i (other|i)* o (other|o)* u (other|u)* NFA:  NFA转DFA表：    I  Ia Ie Ii Io Iu Iother    1,2  3,4     1,2   3,">
+    <meta name="description" content="4.4.11.先进行消左公因式 S -&gt; 0 S 1 | 0 1 S  -&gt; 0 S’  S’ -&gt; S  1 | 1 再进行消左递归 S -&gt; 0 S’ S’ -&gt; 0 S’ 1 | 1 3.进行消左递归 S -&gt; S’ S’ -&gt; ( S ) S  S’| ε 4.消左公因式 S -&gt; S S’ | ( S ) | a S’ -&gt; + S">
 <meta property="og:type" content="article">
-<meta property="og:title" content="课程作业3：NFA与DFA">
-<meta property="og:url" content="https://gandalfmaster.github.io/GandalfBlog/2024/03/17/work3/index.html">
+<meta property="og:title" content="课程作业6：消左与消公">
+<meta property="og:url" content="https://gandalfmaster.github.io/GandalfBlog/2024/04/09/work6/index.html">
 <meta property="og:site_name" content="GandalfMasterBlog">
-<meta property="og:description" content="3.3.5（1）正则表达式：other-&gt;[bcdfghjklmnpqrstvwxyz] ​		need-&gt;other* a (other|a)* e (other|e)* i (other|i)* o (other|o)* u (other|u)* NFA:  NFA转DFA表：    I  Ia Ie Ii Io Iu Iother    1,2  3,4     1,2   3,">
+<meta property="og:description" content="4.4.11.先进行消左公因式 S -&gt; 0 S 1 | 0 1 S  -&gt; 0 S’  S’ -&gt; S  1 | 1 再进行消左递归 S -&gt; 0 S’ S’ -&gt; 0 S’ 1 | 1 3.进行消左递归 S -&gt; S’ S’ -&gt; ( S ) S  S’| ε 4.消左公因式 S -&gt; S S’ | ( S ) | a S’ -&gt; + S">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gandalfmaster.oss-cn-hangzhou.aliyuncs.com/blog/ava1.jpg">
-<meta property="article:published_time" content="2024-03-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-03-17T14:53:22.760Z">
+<meta property="article:published_time" content="2024-04-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-09T08:07:23.784Z">
 <meta property="article:author" content="gandalf">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="CPTT">
@@ -37,7 +37,7 @@
   
   
   
-  <title>课程作业3：NFA与DFA - GandalfMasterBlog</title>
+  <title>课程作业6：消左与消公 - GandalfMasterBlog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -203,7 +203,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">课程作业3：NFA与DFA</span>
+            <span id="subtitle">课程作业6：消左与消公</span>
           
         </div>
 
@@ -214,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-17 00:00" pubdate>
-          2024年3月17日 凌晨
+        <time datetime="2024-04-09 00:00" pubdate>
+          2024年4月9日 凌晨
         </time>
       </span>
     
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          193 字
+          238 字
         
       </span>
     
@@ -274,12 +274,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">课程作业3：NFA与DFA</h1>
+            <h1 id="seo-header">课程作业6：消左与消公</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2025年3月17日 晚上
+                    本文最后更新于 2025年4月9日 下午
                   
                 
               </p>
@@ -287,178 +287,67 @@
             
               <div class="markdown-body">
                 
-                <h2 id="3-3-5"><a href="#3-3-5" class="headerlink" title="3.3.5"></a>3.3.5</h2><h3 id="（1）"><a href="#（1）" class="headerlink" title="（1）"></a>（1）</h3><p>正则表达式：other-&gt;[bcdfghjklmnpqrstvwxyz]</p>
-<p>​		need-&gt;other* a (other|a)* e (other|e)* i (other|i)* o (other|o)* u (other|u)*</p>
-<p>NFA:</p>
-<p><img src="https://gandalfmaster.oss-cn-hangzhou.aliyuncs.com/blog/compileS-3/1.jpg" srcset="/GandalfBlog/img/loading.gif" lazyload alt="1"></p>
-<p>NFA转DFA表：</p>
-<table>
-<thead>
-<tr>
-<th align="center">I</th>
-<th align="center"></th>
-<th align="center">Ia</th>
-<th align="center">Ie</th>
-<th align="center">Ii</th>
-<th align="center">Io</th>
-<th align="center">Iu</th>
-<th align="center">Iother</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">1,2</td>
-<td align="center"></td>
-<td align="center">3,4</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">1,2</td>
-</tr>
-<tr>
-<td align="center">3,4</td>
-<td align="center"></td>
-<td align="center">3,4</td>
-<td align="center">5,6</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">3,4</td>
-</tr>
-<tr>
-<td align="center">5,6</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">5,6</td>
-<td align="center">7,8</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">5,6</td>
-</tr>
-<tr>
-<td align="center">7,8</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">7,8</td>
-<td align="center">9,10</td>
-<td align="center"></td>
-<td align="center">7,8</td>
-</tr>
-<tr>
-<td align="center">9,10</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">9,10</td>
-<td align="center">11,12</td>
-<td align="center">9,10</td>
-</tr>
-<tr>
-<td align="center">11,12</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">11,12</td>
-<td align="center">11,12</td>
-</tr>
-</tbody></table>
-<h3 id="6"><a href="#6" class="headerlink" title="(6)"></a>(6)</h3><p>正则表达式：b(aa)*b|(a(aa)*b(b(aa)*b)*b(aa)*ab|a)</p>
-<p>NFA：</p>
-<p><img src="https://gandalfmaster.oss-cn-hangzhou.aliyuncs.com/blog/compileS-3/2.png" srcset="/GandalfBlog/img/loading.gif" lazyload></p>
-<p>NFA转DFA表：</p>
-<p>太复杂了不画….</p>
-<h3 id="8"><a href="#8" class="headerlink" title="(8)"></a>(8)</h3><p>正则表达式：b* (a+b?)*</p>
-<p>NFA：</p>
-<p><img src="https://gandalfmaster.oss-cn-hangzhou.aliyuncs.com/blog/compileS-3/3.jpg" srcset="/GandalfBlog/img/loading.gif" lazyload alt="2"></p>
-<p>NFA转DFA表：</p>
-<table>
-<thead>
-<tr>
-<th align="center">I</th>
-<th></th>
-<th align="center">Ia</th>
-<th align="center">Ib</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">1,7</td>
-<td></td>
-<td align="center"></td>
-<td align="center">1,2,3,7</td>
-</tr>
-<tr>
-<td align="center">1,2,3,7</td>
-<td></td>
-<td align="center">3,4,6,7</td>
-<td align="center">1,2,3,7</td>
-</tr>
-<tr>
-<td align="center">3,4,6,7</td>
-<td></td>
-<td align="center">3,4,6,7</td>
-<td align="center">3,5,6,7</td>
-</tr>
-<tr>
-<td align="center">3,5,6,7</td>
-<td></td>
-<td align="center">3,4,6,7</td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<h3 id="9"><a href="#9" class="headerlink" title="(9)"></a>(9)</h3><p>正则表达式：b* | b* a+ | b* a+ b a*</p>
-<p>NFA：</p>
-<p><img src="https://gandalfmaster.oss-cn-hangzhou.aliyuncs.com/blog/compileS-3/4.jpg" srcset="/GandalfBlog/img/loading.gif" lazyload alt="4"></p>
-<p>NFA转DFA表：</p>
-<table>
-<thead>
-<tr>
-<th align="center">I</th>
-<th align="center"></th>
-<th align="center">Ia</th>
-<th align="center">Ib</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">1,2,4,9</td>
-<td align="center">1</td>
-<td align="center">4,5,9</td>
-<td align="center">2,3,4,6,7,9</td>
-</tr>
-<tr>
-<td align="center">4,5,9</td>
-<td align="center">2</td>
-<td align="center">4,5,9</td>
-<td align="center">6,7,9</td>
-</tr>
-<tr>
-<td align="center">2,3,4,6,7,9</td>
-<td align="center">3</td>
-<td align="center">4,5,7,8,9</td>
-<td align="center">2,3,4,6,7,9</td>
-</tr>
-<tr>
-<td align="center">6,7,9</td>
-<td align="center">4</td>
-<td align="center">7,8,9</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">4,5,7,8,9</td>
-<td align="center">5</td>
-<td align="center">4,5,7,8,9</td>
-<td align="center">6,7,9</td>
-</tr>
-<tr>
-<td align="center">7,8,9</td>
-<td align="center">6</td>
-<td align="center">7,8,9</td>
-<td align="center"></td>
-</tr>
-</tbody></table>
+                <h2 id="4-4-1"><a href="#4-4-1" class="headerlink" title="4.4.1"></a>4.4.1</h2><h3 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h3><p>先进行消左公因式</p>
+<p>S -&gt; 0 S 1 | 0 1</p>
+<p>S  -&gt; 0 S’ </p>
+<p>S’ -&gt; S  1 | 1</p>
+<p>再进行消左递归</p>
+<p>S -&gt; 0 S’</p>
+<p>S’ -&gt; 0 S’ 1 | 1</p>
+<h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3><p>进行消左递归</p>
+<p>S -&gt; S’</p>
+<p>S’ -&gt; ( S ) S  S’| ε</p>
+<h3 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h3><p>消左公因式</p>
+<p>S -&gt; S S’ | ( S ) | a</p>
+<p>S’ -&gt; + S | S | *</p>
+<p>消左递归</p>
+<p>S -&gt; ( S ) | a A</p>
+<p>A -&gt;  S’ A | ε</p>
+<p>S’ -&gt; + S | S | *</p>
+<h3 id="6"><a href="#6" class="headerlink" title="6."></a>6.</h3><p>消左递归</p>
+<p>bexpr -&gt; bterm bexpr’</p>
+<p>bexpr’ -&gt; or bterm bexpr’ | ε</p>
+<p>bterm -&gt; bfactor bterm’</p>
+<p>bterm’ -&gt; and bfactor bterm’ | ε</p>
+<p>bfactor -&gt; not bfactor | ( bexpr) | true | false</p>
+<h2 id="4-4-3"><a href="#4-4-3" class="headerlink" title="4.4.3"></a>4.4.3</h2><p>first(S) &#x3D; [a]</p>
+<p>follow(S) &#x3D; [a, +, *]</p>
+<h2 id="4-4-4"><a href="#4-4-4" class="headerlink" title="4.4.4"></a>4.4.4</h2><ol>
+<li><p>S -&gt; 0 S 1 | 0 1</p>
+<p>first(S) &#x3D; [0]</p>
+<p>follow(S) &#x3D; [1]</p>
+</li>
+<li><p>S -&gt; + S S | * S S | a</p>
+<p>first(S) &#x3D; [+, *, a]</p>
+<p>follow(S) &#x3D; [+, *, a]</p>
+</li>
+<li><p>S -&gt; S (S) S | ε</p>
+<p>first(S) &#x3D; [(,  ε]</p>
+<p>follow(S) &#x3D; [ ) ]</p>
+</li>
+<li><p>S -&gt; S + S | S S | (S) | S * | a</p>
+<p>first(S) &#x3D; [(, a]</p>
+<p>follow(S) &#x3D; [+, (, a, ), *]</p>
+</li>
+<li><p>S -&gt; (L) | a 以及 L -&gt; L, S | S</p>
+<p>first(S) &#x3D; [(, a]</p>
+<p>follow(S) &#x3D; [,]</p>
+<p>first(L) &#x3D; [(, a]</p>
+<p>follow(L) &#x3D; [), ,]</p>
+</li>
+<li><p>S -&gt; a S b S | b S a S | ε</p>
+<p>first(S) &#x3D; [a, b,  ε]</p>
+<p>follow(S) &#x3D; [a, b]</p>
+</li>
+<li><p>bexpr -&gt; bexpr or bterm | bterm<br>bterm -&gt; bterm and bfactor | bfactor<br>bfactor -&gt; not bfactor | (bexpr) | true | false</p>
+</li>
+</ol>
+<p>   first(bexpr) &#x3D; [bterm]</p>
+<p>   follow(bexpr) &#x3D; [or]</p>
+<p>   first(bterm) &#x3D; [bfactor]</p>
+<p>   follow(bterm) &#x3D; [and]</p>
+<p>   first(bfactor ) &#x3D; [not, (, true, false]</p>
+<p>   follow(bfactor ) &#x3D; [not, (, true, false]</p>
 
                 
               </div>
@@ -513,8 +402,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>课程作业3：NFA与DFA</div>
-      <div>https://gandalfmaster.github.io/GandalfBlog/2024/03/17/work3/</div>
+      <div>课程作业6：消左与消公</div>
+      <div>https://gandalfmaster.github.io/GandalfBlog/2024/04/09/work6/</div>
     </div>
     <div class="license-meta">
       
@@ -526,7 +415,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年3月17日</div>
+          <div>2024年4月9日</div>
         </div>
       
       
@@ -558,18 +447,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/GandalfBlog/2024/03/19/work5/" title="课程作业5：语法分析器">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">课程作业5：语法分析器</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/GandalfBlog/2024/03/05/work2/" title="课程作业2：书本例题答案">
-                        <span class="hidden-mobile">课程作业2：书本例题答案</span>
+                      <a href="/GandalfBlog/2024/04/09/work7/" title="课程作业7：预测分析表">
+                        <span class="hidden-mobile">课程作业7：预测分析表</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

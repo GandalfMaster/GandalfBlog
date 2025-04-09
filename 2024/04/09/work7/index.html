@@ -19,16 +19,16 @@
   <meta name="author" content="gandalf">
   <meta name="keywords" content="">
   
-    <meta name="description" content="3.3.5（1）正则表达式：other-&gt;[bcdfghjklmnpqrstvwxyz] ​		need-&gt;other* a (other|a)* e (other|e)* i (other|i)* o (other|o)* u (other|u)* NFA:  NFA转DFA表：    I  Ia Ie Ii Io Iu Iother    1,2  3,4     1,2   3,">
+    <meta name="description" content="步骤 已匹配 栈 输入 动作    0  E$ （id * id) + id + id * id    1  TE’$ （id * id) + id + id * id E-&gt;TE’   2  FT’E’$ （id * id) + id + id * id T-&gt;FT’   3  (E)T’E’$ （id * id) + id + id * id F-&gt;(E)   4 (">
 <meta property="og:type" content="article">
-<meta property="og:title" content="课程作业3：NFA与DFA">
-<meta property="og:url" content="https://gandalfmaster.github.io/GandalfBlog/2024/03/17/work3/index.html">
+<meta property="og:title" content="课程作业7：预测分析表">
+<meta property="og:url" content="https://gandalfmaster.github.io/GandalfBlog/2024/04/09/work7/index.html">
 <meta property="og:site_name" content="GandalfMasterBlog">
-<meta property="og:description" content="3.3.5（1）正则表达式：other-&gt;[bcdfghjklmnpqrstvwxyz] ​		need-&gt;other* a (other|a)* e (other|e)* i (other|i)* o (other|o)* u (other|u)* NFA:  NFA转DFA表：    I  Ia Ie Ii Io Iu Iother    1,2  3,4     1,2   3,">
+<meta property="og:description" content="步骤 已匹配 栈 输入 动作    0  E$ （id * id) + id + id * id    1  TE’$ （id * id) + id + id * id E-&gt;TE’   2  FT’E’$ （id * id) + id + id * id T-&gt;FT’   3  (E)T’E’$ （id * id) + id + id * id F-&gt;(E)   4 (">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gandalfmaster.oss-cn-hangzhou.aliyuncs.com/blog/ava1.jpg">
-<meta property="article:published_time" content="2024-03-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-03-17T14:53:22.760Z">
+<meta property="article:published_time" content="2024-04-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-09T08:10:49.275Z">
 <meta property="article:author" content="gandalf">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="CPTT">
@@ -37,7 +37,7 @@
   
   
   
-  <title>课程作业3：NFA与DFA - GandalfMasterBlog</title>
+  <title>课程作业7：预测分析表 - GandalfMasterBlog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -203,7 +203,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">课程作业3：NFA与DFA</span>
+            <span id="subtitle">课程作业7：预测分析表</span>
           
         </div>
 
@@ -214,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-17 00:00" pubdate>
-          2024年3月17日 凌晨
+        <time datetime="2024-04-09 00:00" pubdate>
+          2024年4月9日 凌晨
         </time>
       </span>
     
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          193 字
+          303 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          2 分钟
+          3 分钟
         
       </span>
     
@@ -274,12 +274,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">课程作业3：NFA与DFA</h1>
+            <h1 id="seo-header">课程作业7：预测分析表</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2025年3月17日 晚上
+                    本文最后更新于 2025年4月9日 下午
                   
                 
               </p>
@@ -287,176 +287,253 @@
             
               <div class="markdown-body">
                 
-                <h2 id="3-3-5"><a href="#3-3-5" class="headerlink" title="3.3.5"></a>3.3.5</h2><h3 id="（1）"><a href="#（1）" class="headerlink" title="（1）"></a>（1）</h3><p>正则表达式：other-&gt;[bcdfghjklmnpqrstvwxyz]</p>
-<p>​		need-&gt;other* a (other|a)* e (other|e)* i (other|i)* o (other|o)* u (other|u)*</p>
-<p>NFA:</p>
-<p><img src="https://gandalfmaster.oss-cn-hangzhou.aliyuncs.com/blog/compileS-3/1.jpg" srcset="/GandalfBlog/img/loading.gif" lazyload alt="1"></p>
-<p>NFA转DFA表：</p>
-<table>
+                <table>
 <thead>
 <tr>
-<th align="center">I</th>
-<th align="center"></th>
-<th align="center">Ia</th>
-<th align="center">Ie</th>
-<th align="center">Ii</th>
-<th align="center">Io</th>
-<th align="center">Iu</th>
-<th align="center">Iother</th>
+<th align="center">步骤</th>
+<th align="center">已匹配</th>
+<th align="center">栈</th>
+<th align="center">输入</th>
+<th align="center">动作</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">1,2</td>
+<td align="center">0</td>
 <td align="center"></td>
-<td align="center">3,4</td>
+<td align="center">E$</td>
+<td align="center">（id * id) + id + id * id</td>
 <td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">1,2</td>
 </tr>
 <tr>
-<td align="center">3,4</td>
-<td align="center"></td>
-<td align="center">3,4</td>
-<td align="center">5,6</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">3,4</td>
-</tr>
-<tr>
-<td align="center">5,6</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">5,6</td>
-<td align="center">7,8</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">5,6</td>
-</tr>
-<tr>
-<td align="center">7,8</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">7,8</td>
-<td align="center">9,10</td>
-<td align="center"></td>
-<td align="center">7,8</td>
-</tr>
-<tr>
-<td align="center">9,10</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">9,10</td>
-<td align="center">11,12</td>
-<td align="center">9,10</td>
-</tr>
-<tr>
-<td align="center">11,12</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">11,12</td>
-<td align="center">11,12</td>
-</tr>
-</tbody></table>
-<h3 id="6"><a href="#6" class="headerlink" title="(6)"></a>(6)</h3><p>正则表达式：b(aa)*b|(a(aa)*b(b(aa)*b)*b(aa)*ab|a)</p>
-<p>NFA：</p>
-<p><img src="https://gandalfmaster.oss-cn-hangzhou.aliyuncs.com/blog/compileS-3/2.png" srcset="/GandalfBlog/img/loading.gif" lazyload></p>
-<p>NFA转DFA表：</p>
-<p>太复杂了不画….</p>
-<h3 id="8"><a href="#8" class="headerlink" title="(8)"></a>(8)</h3><p>正则表达式：b* (a+b?)*</p>
-<p>NFA：</p>
-<p><img src="https://gandalfmaster.oss-cn-hangzhou.aliyuncs.com/blog/compileS-3/3.jpg" srcset="/GandalfBlog/img/loading.gif" lazyload alt="2"></p>
-<p>NFA转DFA表：</p>
-<table>
-<thead>
-<tr>
-<th align="center">I</th>
-<th></th>
-<th align="center">Ia</th>
-<th align="center">Ib</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">1,7</td>
-<td></td>
-<td align="center"></td>
-<td align="center">1,2,3,7</td>
-</tr>
-<tr>
-<td align="center">1,2,3,7</td>
-<td></td>
-<td align="center">3,4,6,7</td>
-<td align="center">1,2,3,7</td>
-</tr>
-<tr>
-<td align="center">3,4,6,7</td>
-<td></td>
-<td align="center">3,4,6,7</td>
-<td align="center">3,5,6,7</td>
-</tr>
-<tr>
-<td align="center">3,5,6,7</td>
-<td></td>
-<td align="center">3,4,6,7</td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<h3 id="9"><a href="#9" class="headerlink" title="(9)"></a>(9)</h3><p>正则表达式：b* | b* a+ | b* a+ b a*</p>
-<p>NFA：</p>
-<p><img src="https://gandalfmaster.oss-cn-hangzhou.aliyuncs.com/blog/compileS-3/4.jpg" srcset="/GandalfBlog/img/loading.gif" lazyload alt="4"></p>
-<p>NFA转DFA表：</p>
-<table>
-<thead>
-<tr>
-<th align="center">I</th>
-<th align="center"></th>
-<th align="center">Ia</th>
-<th align="center">Ib</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">1,2,4,9</td>
 <td align="center">1</td>
-<td align="center">4,5,9</td>
-<td align="center">2,3,4,6,7,9</td>
+<td align="center"></td>
+<td align="center">TE’$</td>
+<td align="center">（id * id) + id + id * id</td>
+<td align="center">E-&gt;TE’</td>
 </tr>
 <tr>
-<td align="center">4,5,9</td>
 <td align="center">2</td>
-<td align="center">4,5,9</td>
-<td align="center">6,7,9</td>
+<td align="center"></td>
+<td align="center">FT’E’$</td>
+<td align="center">（id * id) + id + id * id</td>
+<td align="center">T-&gt;FT’</td>
 </tr>
 <tr>
-<td align="center">2,3,4,6,7,9</td>
 <td align="center">3</td>
-<td align="center">4,5,7,8,9</td>
-<td align="center">2,3,4,6,7,9</td>
+<td align="center"></td>
+<td align="center">(E)T’E’$</td>
+<td align="center">（id * id) + id + id * id</td>
+<td align="center">F-&gt;(E)</td>
 </tr>
 <tr>
-<td align="center">6,7,9</td>
 <td align="center">4</td>
-<td align="center">7,8,9</td>
+<td align="center">(</td>
+<td align="center">E)T’E’$</td>
+<td align="center">id * id) + id + id * id</td>
 <td align="center"></td>
 </tr>
 <tr>
-<td align="center">4,5,7,8,9</td>
 <td align="center">5</td>
-<td align="center">4,5,7,8,9</td>
-<td align="center">6,7,9</td>
+<td align="center">(</td>
+<td align="center">TE’)T’E’$</td>
+<td align="center">id * id) + id + id * id</td>
+<td align="center">E-&gt;TE’</td>
 </tr>
 <tr>
-<td align="center">7,8,9</td>
 <td align="center">6</td>
-<td align="center">7,8,9</td>
+<td align="center">(</td>
+<td align="center">FT’E’)T’E’$</td>
+<td align="center">id * id) + id + id * id</td>
+<td align="center">T-&gt;FT’</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">(</td>
+<td align="center">idT’E’)T’E’$</td>
+<td align="center">id * id) + id + id * id</td>
+<td align="center">F-&gt;id</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">(id</td>
+<td align="center">T’E’)T’E’$</td>
+<td align="center">* id) + id + id * id</td>
 <td align="center"></td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="center">(id</td>
+<td align="center">*FT’E’)T’E’$</td>
+<td align="center">* id) + id + id * id</td>
+<td align="center">T’-&gt;*FT’</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="center">(id *</td>
+<td align="center">FT’E’)T’E’$</td>
+<td align="center">id) + id + id * id</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td align="center">(id *</td>
+<td align="center">idT’E’)T’E’$</td>
+<td align="center">id) + id + id * id</td>
+<td align="center">F-&gt;id</td>
+</tr>
+<tr>
+<td align="center">12</td>
+<td align="center">(id * id</td>
+<td align="center">T’E’)T’E’$</td>
+<td align="center">) + id + id * id</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">13</td>
+<td align="center">(id * id</td>
+<td align="center">E’)T’E’$</td>
+<td align="center">) + id + id * id</td>
+<td align="center">T’ -&gt; ε</td>
+</tr>
+<tr>
+<td align="center">14</td>
+<td align="center">(id * id</td>
+<td align="center">)T’E’$</td>
+<td align="center">) + id + id * id</td>
+<td align="center">E’ -&gt; ε</td>
+</tr>
+<tr>
+<td align="center">15</td>
+<td align="center">(id * id)</td>
+<td align="center">T’E’$</td>
+<td align="center">+ id + id * id</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">16</td>
+<td align="center">(id * id)</td>
+<td align="center">E’$</td>
+<td align="center">+ id + id * id</td>
+<td align="center">T’ -&gt; ε</td>
+</tr>
+<tr>
+<td align="center">17</td>
+<td align="center">(id * id)</td>
+<td align="center">+TE’$</td>
+<td align="center">+ id + id * id</td>
+<td align="center">E’ -&gt; +TE’</td>
+</tr>
+<tr>
+<td align="center">18</td>
+<td align="center">(id * id) +</td>
+<td align="center">TE’$</td>
+<td align="center">id + id * id</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">19</td>
+<td align="center">(id * id) +</td>
+<td align="center">FT’E’$</td>
+<td align="center">id + id * id</td>
+<td align="center">T-&gt;FT’</td>
+</tr>
+<tr>
+<td align="center">20</td>
+<td align="center">(id * id) +</td>
+<td align="center">idT’E’$</td>
+<td align="center">id + id * id</td>
+<td align="center">F-&gt;id</td>
+</tr>
+<tr>
+<td align="center">21</td>
+<td align="center">(id * id) + id</td>
+<td align="center">T’E’$</td>
+<td align="center">+ id * id</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">22</td>
+<td align="center">(id * id) + id</td>
+<td align="center">E’$</td>
+<td align="center">+ id * id</td>
+<td align="center">T’ -&gt; ε</td>
+</tr>
+<tr>
+<td align="center">23</td>
+<td align="center">(id * id) + id</td>
+<td align="center">+TE’$</td>
+<td align="center">+ id * id</td>
+<td align="center">E’ -&gt; +TE’</td>
+</tr>
+<tr>
+<td align="center">24</td>
+<td align="center">(id * id) + id +</td>
+<td align="center">TE’$</td>
+<td align="center">id * id</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">25</td>
+<td align="center">(id * id) + id +</td>
+<td align="center">FT’E’$</td>
+<td align="center">id * id</td>
+<td align="center">T-&gt;FT’</td>
+</tr>
+<tr>
+<td align="center">26</td>
+<td align="center">(id * id) + id +</td>
+<td align="center">idT’E’$</td>
+<td align="center">id * id</td>
+<td align="center">F-&gt;id</td>
+</tr>
+<tr>
+<td align="center">27</td>
+<td align="center">(id * id) + id + id</td>
+<td align="center">T’E’$</td>
+<td align="center">* id</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">28</td>
+<td align="center">(id * id) + id + id</td>
+<td align="center">*FT’E’$</td>
+<td align="center">* id</td>
+<td align="center">T’-&gt;*FT’</td>
+</tr>
+<tr>
+<td align="center">29</td>
+<td align="center">(id * id) + id + id *</td>
+<td align="center">FT’E’$</td>
+<td align="center">id</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">30</td>
+<td align="center">(id * id) + id + id *</td>
+<td align="center">idT’E’$</td>
+<td align="center">id</td>
+<td align="center">F-&gt;id</td>
+</tr>
+<tr>
+<td align="center">31</td>
+<td align="center">(id * id) + id + id * id</td>
+<td align="center">T’E’$</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">32</td>
+<td align="center">(id * id) + id + id * id</td>
+<td align="center">E’$</td>
+<td align="center"></td>
+<td align="center">T’ -&gt; ε</td>
+</tr>
+<tr>
+<td align="center">33</td>
+<td align="center">(id * id) + id + id * id</td>
+<td align="center">$</td>
+<td align="center"></td>
+<td align="center">E’ -&gt; ε</td>
 </tr>
 </tbody></table>
 
@@ -513,8 +590,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>课程作业3：NFA与DFA</div>
-      <div>https://gandalfmaster.github.io/GandalfBlog/2024/03/17/work3/</div>
+      <div>课程作业7：预测分析表</div>
+      <div>https://gandalfmaster.github.io/GandalfBlog/2024/04/09/work7/</div>
     </div>
     <div class="license-meta">
       
@@ -526,7 +603,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年3月17日</div>
+          <div>2024年4月9日</div>
         </div>
       
       
@@ -558,9 +635,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/GandalfBlog/2024/03/19/work5/" title="课程作业5：语法分析器">
+                      <a href="/GandalfBlog/2024/04/09/work6/" title="课程作业6：消左与消公">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">课程作业5：语法分析器</span>
+                        <span class="hidden-mobile">课程作业6：消左与消公</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -568,8 +645,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/GandalfBlog/2024/03/05/work2/" title="课程作业2：书本例题答案">
-                        <span class="hidden-mobile">课程作业2：书本例题答案</span>
+                      <a href="/GandalfBlog/2024/03/19/work4/" title="课程作业4：做一个词法分析器">
+                        <span class="hidden-mobile">课程作业4：做一个词法分析器</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
